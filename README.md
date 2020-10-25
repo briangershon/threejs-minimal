@@ -6,19 +6,19 @@ ES Modules. Hot reloading during development.
 
 Builds with Webpack 5, intentionally using as many defaults as possible for smallest configuration file.
 
-Tree-shaking doesn't work well with Three.js without extra work. There's a Webpack 4 plugin called [three-minifier plugin](https://github.com/yushijinhun/three-minifier) and [backstory](https://github.com/mrdoob/three.js/issues/16059) for why plugin is needed.
+## Tree-shaking
 
-Instead I decided to change imports to use three source directly instead of full library to avoid the extra complexity.
+Tree-shaking doesn't work well with Three.js without extra work.
 
-In other words, using this:
+After playing with the various workarounds, I decided to just bring in the whole library and not bother trying to tree-shake.
 
-    // bring in just what you need
-    import { Scene } from '../node_modules/three/src/scenes/Scene'; 
+Workarounds I tried:
 
-instead of this:
+- There's a Webpack 4 plugin called [three-minifier plugin](https://github.com/yushijinhun/three-minifier) and [backstory](https://github.com/mrdoob/three.js/issues/16059) for why the plugin is needed. Decided to avoid this extra complexity.
 
-    // brings in whole 500k library
-    import { Scene } from 'three';
+- Then tried optimizing directly with imports like this: `import { Scene } from 'three/src/scenes/Scene';`. This worked from a tree-shaking perspective, but...
+
+- ... after getting the Three.js Hello World app running, the size of the import was getting close to the whole library anyhow, and doing thee manual imports wasn't a great developer experience.
 
 ## Usage
 
