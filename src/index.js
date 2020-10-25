@@ -20,7 +20,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 var geometry = new BoxGeometry();
-var material = new MeshBasicMaterial({ color: 0xff0000 });
+var material = new MeshBasicMaterial({ color: 0x00ff00 });
 var cube = new Mesh(geometry, material);
 scene.add(cube);
 

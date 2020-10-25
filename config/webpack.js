@@ -7,4 +7,9 @@ module.exports = {
   output: {
     path: paths.build,
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
 };
