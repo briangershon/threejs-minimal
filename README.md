@@ -1,10 +1,11 @@
 # threejs-minimal
 
-A minimal web project needed to run three.js experiments.
+A minimal web project needed to run Three.js experiments.
 
-ES Modules. Hot reloading during development.
+Features:
 
-Builds with Webpack 5, intentionally using as many defaults as possible for smallest configuration file.
+- examples of using Three.js geometry (box and text), camera, lights, materials, orbit controls and animations.
+- uses Webpack 5, though intentionally relies on as many Webpack defaults as possible for smallest configuration file.
 
 ## Tree-shaking
 
